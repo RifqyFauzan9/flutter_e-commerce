@@ -1,6 +1,9 @@
+import 'package:e_commerce/components/my_default_button.dart';
 import 'package:e_commerce/constant.dart';
+import 'package:e_commerce/screens/otp/otp_screen.dart';
 import 'package:e_commerce/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:e_commerce/components/error_form_message.dart';
 
 class CompleteProfileForm extends StatefulWidget {
   const CompleteProfileForm({super.key});
@@ -23,39 +26,159 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       key: _formKey,
       child: Column(
         children: [
-          userNameFormField(),
+          firstNameFormField(),
+          SizedBox(
+            height: getProportionateScreenHeight(20),
+          ),
+          lastNameFormField(),
+          SizedBox(
+            height: getProportionateScreenHeight(20),
+          ),
+          phoneNumberFormField(),
+          SizedBox(
+            height: getProportionateScreenHeight(20),
+          ),
+          addressFormField(),
+          ErorrFormMessage(errors: errors),
+          SizedBox(
+            height: getProportionateScreenHeight(20),
+          ),
+          MyDefaultButton(
+            text: 'Continue',
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                _formKey.currentState!.save();
+              }
+
+              if (errors.isEmpty) {
+                Navigator.pushNamed(context, OtpScreen.routeName);
+              }
+            },
+          ),
         ],
       ),
     );
   }
 
-  TextFormField userNameFormField() {
+  TextFormField addressFormField() {
     return TextFormField(
-      onChanged: (value) {},
-      validator: (value) {
-        if (value!.isEmpty && !errors.contains(kPassNullError)) {
+      keyboardType: TextInputType.emailAddress,
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(kEmailNullError)) {
           setState(() {
-            errors.add(kPassNullError);
+            errors.remove(kEmailNullError);
           });
-          return '';
-        } else if (value.length < 8 &&
-            (!errors.contains(kPassNullError) &&
-                !errors.contains(kShortPassError))) {
-          setState(() {
-            errors.add(kShortPassError);
-          });
-          return '';
         }
-        return null;
+      },
+      onSaved: (newValue) => email = newValue,
+      validator: (value) {
+        if (value!.isEmpty && !errors.contains(kEmailNullError)) {
+          setState(() {
+            errors.add(kEmailNullError);
+          });
+        }
+        return '';
+      },
+      decoration: InputDecoration(
+        labelText: 'Address',
+        hintText: 'Enter your Address',
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: Padding(
+          padding: EdgeInsets.all(getProportionateScreenWidth(16)),
+          child: const Icon(Icons.email_outlined),
+        ),
+      ),
+    );
+  }
+
+  TextFormField phoneNumberFormField() {
+    return TextFormField(
+      keyboardType: TextInputType.phone,
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(kPhoneNumberNullError)) {
+          setState(() {
+            errors.remove(kPhoneNumberNullError);
+          });
+        }
+      },
+      onSaved: (newValue) => phoneNumber = newValue,
+      validator: (value) {
+        if (value!.isEmpty && !errors.contains(kPhoneNumberNullError)) {
+          setState(() {
+            errors.add(kPhoneNumberNullError);
+          });
+        }
+        return '';
+      },
+      decoration: InputDecoration(
+        labelText: 'Phone Number',
+        hintText: 'Enter your Phone Number',
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: Padding(
+          padding: EdgeInsets.all(getProportionateScreenWidth(16)),
+          child: const Icon(Icons.phone_outlined),
+        ),
+      ),
+    );
+  }
+
+  TextFormField lastNameFormField() {
+    return TextFormField(
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(kLastNameNullError)) {
+          setState(() {
+            errors.remove(kLastNameNullError);
+          });
+        }
+      },
+      keyboardType: TextInputType.name,
+      onSaved: (newValue) => lastName = newValue,
+      validator: (value) {
+        if (value!.isEmpty && !errors.contains(kLastNameNullError)) {
+          setState(() {
+            errors.add(kLastNameNullError);
+          });
+        }
+        return '';
+      },
+      decoration: InputDecoration(
+        labelText: 'Last Name',
+        hintText: 'Enter your Last Name',
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: Padding(
+          padding: EdgeInsets.all(getProportionateScreenWidth(16)),
+          child: const Icon(Icons.account_circle_outlined),
+        ),
+      ),
+    );
+  }
+
+  TextFormField firstNameFormField() {
+    return TextFormField(
+      keyboardType: TextInputType.name,
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(kFirstNameNullError)) {
+          setState(() {
+            errors.remove(kFirstNameNullError);
+          });
+        }
+      },
+      onSaved: (newValue) => firstName = newValue,
+      validator: (value) {
+        if (value!.isEmpty && !errors.contains(kFirstNameNullError)) {
+          setState(() {
+            errors.add(kFirstNameNullError);
+          });
+        }
+        return '';
       },
       decoration: InputDecoration(
         labelText: 'User Name',
         hintText: 'Enter your name',
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: IconButton(
+        suffixIcon: Padding(
           padding: EdgeInsets.all(getProportionateScreenWidth(16)),
-          onPressed: () {},
-          icon: const Icon(Icons.supervised_user_circle_rounded),
+          child: const Icon(Icons.account_circle_outlined),
         ),
       ),
     );

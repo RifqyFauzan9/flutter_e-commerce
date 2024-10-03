@@ -49,11 +49,12 @@ class _BodyState extends State<Body> {
                         children: List.generate(splashData.length,
                             (index) => dotBuilder(index: index))),
                     const Spacer(
-                      flex: 3,
+                      flex: 1,
                     ),
                     MyDefaultButton(
                       text: 'Next',
-                      onPressed: () => Navigator.pushNamed(context, '/sign_in'),
+                      onPressed: () =>
+                          Navigator.pushReplacementNamed(context, '/sign_in'),
                     ),
                     const Spacer(),
                   ],

@@ -30,6 +30,16 @@ class Body extends StatelessWidget {
                     height: SizeConfig.screenHeight * 0.03,
                   ),
                   const CompleteProfileForm(),
+                  SizedBox(
+                    height: getProportionateScreenHeight(20),
+                  ),
+                  const Text(
+                    'By continuoing you confirm that you agree \nwith our Terms and Condition',
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(
+                    height: getProportionateScreenHeight(20),
+                  ),
                 ],
               ),
             ),

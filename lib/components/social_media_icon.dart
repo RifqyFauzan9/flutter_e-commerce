@@ -20,8 +20,8 @@ class SocialMediaIcon extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 10),
         padding: EdgeInsets.all(getProportionateScreenWidth(12)),
-        height: getProportionateScreenHeight(40),
-        width: getProportionateScreenWidth(40),
+        height: getProportionateScreenHeight(50),
+        width: getProportionateScreenWidth(50),
         decoration: const BoxDecoration(
           color: kSocialMediaBackgroundColor, // Colors.black,
           shape: BoxShape.circle,

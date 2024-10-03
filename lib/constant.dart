@@ -12,8 +12,7 @@ const kPrimaryGradientColor = LinearGradient(
 );
 
 // Color Variables
-const kPrimaryColor = Color(0xFF191925); // Full opacity (FF) + RGB (191925)
-
+const kPrimaryColor = Color(0xff03AC0E); // Full opacity (FF) + RGB (191925)
 const kPrimaryLightColor = Color(0xffffecdf);
 const kSecondaryColor = Color(0xff979797);
 const kTextColor = Color(0xff757575);
@@ -40,6 +39,22 @@ const String kMatchPassError = "Passwords don't match";
 const String kConfirmPassNullError = 'Please Re-Enter your password';
 
 // Complete Profile
-const String kNameNullError = 'Please enter your name';
+const String kFirstNameNullError = 'Please enter your first name';
+const String kLastNameNullError = 'Please enter your last name';
 const String kPhoneNumberNullError = 'Please enter your phone number';
 const String kAddressNullError = 'Please enter your address';
+
+// Otp Input Decoration
+final otpDecoration = InputDecoration(
+  contentPadding: const EdgeInsets.symmetric(vertical: 15),
+  enabledBorder: otpOutlineInputBorder(),
+  focusedBorder: otpOutlineInputBorder(),
+  border: otpOutlineInputBorder(),
+);
+
+OutlineInputBorder otpOutlineInputBorder() {
+  return OutlineInputBorder(
+  borderRadius: BorderRadius.circular(15),
+  borderSide: const BorderSide(color: kTextColor),
+);
+}

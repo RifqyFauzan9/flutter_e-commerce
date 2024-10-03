@@ -82,6 +82,7 @@ class _BodyState extends State<Body> {
                     ),
                   ],
                 ),
+                SizedBox(height: getProportionateScreenHeight(20)),
               ],
             ),
           ),

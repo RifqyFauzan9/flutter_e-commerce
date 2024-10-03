@@ -91,10 +91,9 @@ class _SignInFormState extends State<SignInForm> {
         labelText: 'Email',
         hintText: 'Enter your email',
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: IconButton(
+        suffixIcon: Padding(
           padding: EdgeInsets.all(getProportionateScreenWidth(16)),
-          onPressed: () {},
-          icon: const Icon(Icons.email),
+          child: const Icon(Icons.email_outlined),
         ),
       ),
     );
@@ -141,7 +140,7 @@ class _SignInFormState extends State<SignInForm> {
               _obscureText = !_obscureText;
             });
           },
-          icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+          icon: Icon(_obscureText ? Icons.visibility_outlined : Icons.visibility_off_outlined),
         ),
       ),
     );
