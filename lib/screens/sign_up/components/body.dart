@@ -1,16 +1,17 @@
+import 'package:flutter/material.dart';
 import 'package:e_commerce/components/social_media_icon.dart';
 import 'package:e_commerce/constant.dart';
-import 'package:e_commerce/screens/sign_up/sign_up_form.dart';
+import 'package:e_commerce/screens/sign_up/components/sign_up_form.dart';
 import 'package:e_commerce/size_config.dart';
-import 'package:flutter/material.dart';
+
+// body sign up
 
 class Body extends StatelessWidget {
   const Body({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: SizedBox(
+    return SizedBox(
         width: double.infinity,
         child: Padding(
           padding:
@@ -20,16 +21,13 @@ class Body extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    'Register Account',
-                    style: headingTextStyle,
+                    "Register an Account",
+                    style: headingStyle,
                   ),
                   const Text(
-                    'Complete your details or continue \nwith social media',
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(
-                    height: SizeConfig.screenHeight * 0.06,
-                  ),
+                      "Complete your Details or continue\nwith Social Media",
+                      textAlign: TextAlign.center),
+                  SizedBox(height: SizeConfig.screenHeight * 0.03),
                   const SignUpForm(),
                   SizedBox(height: SizeConfig.screenHeight * 0.03),
                   Row(
@@ -37,21 +35,21 @@ class Body extends StatelessWidget {
                     children: [
                       SocialMediaIcon(
                         icon: 'assets/icons/google-icon.svg',
-                        onPressed: () {},
+                        press: () {},
                       ),
                       SocialMediaIcon(
                         icon: 'assets/icons/facebook-2.svg',
-                        onPressed: () {},
+                        press: () {},
                       ),
                       SocialMediaIcon(
                         icon: 'assets/icons/twitter.svg',
-                        onPressed: () {},
+                        press: () {},
                       ),
                     ],
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.03),
                   const Text(
-                    'By continuoing you confirm that you agree \nwith our Terms and Condition',
+                    'By continuing your confirm that you agree \nwith our Term and Condition',
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.03),
@@ -59,8 +57,6 @@ class Body extends StatelessWidget {
               ),
             ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

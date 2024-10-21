@@ -1,8 +1,8 @@
-import 'package:e_commerce/constant.dart';
-import 'package:e_commerce/screens/forgot_password/forgot_password_form.dart';
 import 'package:e_commerce/screens/sign_up/sign_up_screen.dart';
-import 'package:e_commerce/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:e_commerce/constant.dart';
+import 'package:e_commerce/screens/forgot_password/components/forgot_password_form.dart';
+import 'package:e_commerce/size_config.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -17,22 +17,26 @@ class Body extends StatelessWidget {
         child: Center(
           child: SingleChildScrollView(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Forgot Password',
+                  "Forgot Password",
                   style: TextStyle(
-                    fontSize: getProportionateScreenWidth(28),
+                    fontSize: getProportionateScreenWidth(25),
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const Text(
-                  'Enter your email to reset your password',
+                  "Please enter your email and we will send \nyou a link to return to your account",
+                  textAlign: TextAlign.center,
                 ),
-                SizedBox(height: SizeConfig.screenHeight * 0.03),
+                SizedBox(
+                  height: SizeConfig.screenHeight * 0.03,
+                ),
                 const ForgotPasswordForm(),
-                SizedBox(height: SizeConfig.screenHeight * 0.03),
+                SizedBox(
+                  height: SizeConfig.screenHeight * 0.03,
+                ),
                 dontHaveAccountText(context),
               ],
             ),
@@ -46,23 +50,13 @@ class Body extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text(
-          'Don\'t have an account?',
-        ),
-        SizedBox(
-          width: getProportionateScreenWidth(5),
-        ),
+        const Text("Dont have an account? "),
         GestureDetector(
-          onTap: () {
-            Navigator.pushNamed(context, SignUpScreen.routeName);
-          },
-          child: const Text(
-          'Sign Up',
-          style: TextStyle(
-            color: kPrimaryColor,
-          ),
-        ),
-        ),
+            onTap: () {
+              Navigator.pushNamed(context, SignUpScreen.routeName);
+            },
+            child:
+                const Text("Sign Up", style: TextStyle(color: kPrimaryColor)))
       ],
     );
   }

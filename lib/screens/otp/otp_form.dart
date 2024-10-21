@@ -1,7 +1,7 @@
-import 'package:e_commerce/constant.dart';
-import 'package:e_commerce/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:e_commerce/constant.dart';
+import 'package:e_commerce/screens/home/home_screen.dart';
 import '../../components/my_default_button.dart';
 import '../../size_config.dart';
 
@@ -34,7 +34,7 @@ class _OtpFormState extends State<OtpForm> {
           SizedBox(height: SizeConfig.screenHeight * 0.15),
           MyDefaultButton(
               text: 'Continue',
-              onPressed: () {
+              press: () {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
                 }

@@ -1,32 +1,44 @@
-import 'package:e_commerce/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:e_commerce/size_config.dart';
 
-// Gradient list
-const kPrimaryGradientColor = LinearGradient(
-  begin: Alignment.topLeft,
-  end: Alignment.bottomRight,
-  colors: [
-    Color(0xFF3A3A4A), // A lighter shade of the primary color
-    Color(0xFF191925), // The primary color
-  ],
+const defaultDuration = Duration(milliseconds: 250);
+
+final otpInputDecoration = InputDecoration(
+  contentPadding:
+      EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
+  border: outlineInputBorder(),
+  focusedBorder: outlineInputBorder(),
+  enabledBorder: outlineInputBorder(),
 );
 
-// Color Variables
-const kPrimaryColor = Color(0xff03AC0E); // Full opacity (FF) + RGB (191925)
+OutlineInputBorder outlineInputBorder() {
+  return OutlineInputBorder(
+    borderRadius: BorderRadius.circular(getProportionateScreenWidth(15)),
+    borderSide: const BorderSide(color: kTextColor),
+  );
+}
+
+const kPrimaryColor = Color(0xFF0F156D);
 const kPrimaryLightColor = Color(0xffffecdf);
-const kSecondaryColor = Color(0xff979797);
+const kPrimaryGradientColor = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xFF1A1F8C), // Warna yang sedikit lebih terang dari kPrimaryColor
+      Color(0xFF0B1150), // Warna yang sedikit lebih gelap dari kPrimaryColor
+    ]);
+
+const kSecondaryColor = Color(0xFF979797);
 const kTextColor = Color(0xff757575);
-const kBackgroundColor = Color(0xffF2F2F2);
-const kSocialMediaBackgroundColor = Color(0xFFF5F6F9);
-final TextStyle headingTextStyle = TextStyle(
+
+const kAnimationDuration = Duration(milliseconds: 200);
+
+final headingStyle = TextStyle(
   fontSize: getProportionateScreenWidth(28),
   fontWeight: FontWeight.bold,
   color: Colors.black,
   height: 1.5,
 );
-
-// Animation Duration
-const kAnimationDuration = Duration(milliseconds: 200);
 
 // Form Error
 final RegExp emailValidatorRegExp =
@@ -36,25 +48,23 @@ const String kInvalidEmailError = "Please Enter Valid Email";
 const String kPassNullError = "Please Enter your password";
 const String kShortPassError = "Password is too short";
 const String kMatchPassError = "Passwords don't match";
-const String kConfirmPassNullError = 'Please Re-Enter your password';
 
-// Complete Profile
-const String kFirstNameNullError = 'Please enter your first name';
-const String kLastNameNullError = 'Please enter your last name';
-const String kPhoneNumberNullError = 'Please enter your phone number';
-const String kAddressNullError = 'Please enter your address';
+// complete profile
+const String kNameNullError = "Please Enter your name";
+const String kPhoneNumberNullError = "Please Enter your phone number";
+const String kAddressNullError = "Please Enter your address";
 
-// Otp Input Decoration
+// otp style
 final otpDecoration = InputDecoration(
-  contentPadding: const EdgeInsets.symmetric(vertical: 15),
-  enabledBorder: otpOutlineInputBorder(),
-  focusedBorder: otpOutlineInputBorder(),
-  border: otpOutlineInputBorder(),
+  contentPadding:
+      EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
+  enabledBorder: otpOutlineInputBoder(),
+  focusedBorder: otpOutlineInputBoder(),
+  border: otpOutlineInputBoder(),
 );
 
-OutlineInputBorder otpOutlineInputBorder() {
+OutlineInputBorder otpOutlineInputBoder() {
   return OutlineInputBorder(
-  borderRadius: BorderRadius.circular(15),
-  borderSide: const BorderSide(color: kTextColor),
-);
+      borderRadius: BorderRadius.circular(15),
+      borderSide: const BorderSide(color: kTextColor));
 }

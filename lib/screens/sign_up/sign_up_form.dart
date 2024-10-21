@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:e_commerce/components/error_form_message.dart';
 import 'package:e_commerce/components/my_default_button.dart';
 import 'package:e_commerce/constant.dart';
 import 'package:e_commerce/screens/complete_profile/complete_profile_screen.dart';
 import 'package:e_commerce/size_config.dart';
-import 'package:flutter/material.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -35,7 +35,7 @@ class _SignUpFormState extends State<SignUpForm> {
           SizedBox(height: getProportionateScreenHeight(20)),
           MyDefaultButton(
             text: 'Sign Up',
-            onPressed: () {
+            press: () {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
               }
@@ -156,9 +156,9 @@ class _SignUpFormState extends State<SignUpForm> {
         }
       },
       validator: (value) {
-        if (value!.isEmpty && !errors.contains(kConfirmPassNullError)) {
+        if (value!.isEmpty && !errors.contains(kPassNullError)) {
           setState(() {
-            errors.add(kConfirmPassNullError);
+            errors.add(kPassNullError);
           });
         } else if (value != password && !errors.contains(kMatchPassError)) {
           setState(() {

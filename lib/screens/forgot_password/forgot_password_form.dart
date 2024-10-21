@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:e_commerce/components/error_form_message.dart';
 import 'package:e_commerce/components/my_default_button.dart';
 import 'package:e_commerce/constant.dart';
 import 'package:e_commerce/size_config.dart';
-import 'package:flutter/material.dart';
 
 class ForgotPasswordForm extends StatefulWidget {
   const ForgotPasswordForm({super.key});
@@ -31,7 +31,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
           SizedBox(height: getProportionateScreenHeight(20)),
           MyDefaultButton(
             text: 'Reset Password',
-            onPressed: () {
+            press: () {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
               }

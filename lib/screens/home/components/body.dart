@@ -1,29 +1,32 @@
-import 'package:e_commerce/components/categories_home.dart';
-import 'package:e_commerce/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:e_commerce/screens/home/components/categories.dart';
+import 'package:e_commerce/screens/home/components/discount_banner.dart';
+import 'package:e_commerce/screens/home/components/home_header.dart';
+import 'package:e_commerce/screens/home/components/popular_product.dart';
+import 'package:e_commerce/screens/home/components/special_offers.dart';
 
-import '../../../components/banner_discount.dart';
-import 'header_home_part.dart';
+import '../../../size_config.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: getProportionateScreenHeight(20)),
-              const HeaderHomePart(),
-              SizedBox(height: getProportionateScreenHeight(20)),
-              const BannerDiscount(),
-              SizedBox(height: getProportionateScreenHeight(10)),
-              const Categories()
-            ],
-          ),
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: getProportionateScreenHeight(20)),
+            const HomeHeader(),
+            SizedBox(height: getProportionateScreenWidth(10)),
+            const DiscountBanner(),
+            const Categories(),
+            SizedBox(height: getProportionateScreenWidth(15)),
+            const SpecialOffers(),
+            SizedBox(height: getProportionateScreenWidth(30)),
+            const PopularProducts(),
+            SizedBox(height: getProportionateScreenWidth(30)),
+          ],
         ),
       ),
     );

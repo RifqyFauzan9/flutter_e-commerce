@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:e_commerce/components/error_form_message.dart';
 import 'package:e_commerce/components/my_default_button.dart';
 import 'package:e_commerce/constant.dart';
 import 'package:e_commerce/screens/otp/otp_screen.dart';
 import 'package:e_commerce/size_config.dart';
-import 'package:flutter/material.dart';
-import 'package:e_commerce/components/error_form_message.dart';
 
 class CompleteProfileForm extends StatefulWidget {
   const CompleteProfileForm({super.key});
@@ -45,7 +45,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           ),
           MyDefaultButton(
             text: 'Continue',
-            onPressed: () {
+            press: () {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
               }
@@ -125,18 +125,18 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   TextFormField lastNameFormField() {
     return TextFormField(
       onChanged: (value) {
-        if (value.isNotEmpty && errors.contains(kLastNameNullError)) {
+        if (value.isNotEmpty && errors.contains(kNameNullError)) {
           setState(() {
-            errors.remove(kLastNameNullError);
+            errors.remove(kNameNullError);
           });
         }
       },
       keyboardType: TextInputType.name,
       onSaved: (newValue) => lastName = newValue,
       validator: (value) {
-        if (value!.isEmpty && !errors.contains(kLastNameNullError)) {
+        if (value!.isEmpty && !errors.contains(kNameNullError)) {
           setState(() {
-            errors.add(kLastNameNullError);
+            errors.add(kNameNullError);
           });
         }
         return '';
@@ -157,17 +157,17 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
     return TextFormField(
       keyboardType: TextInputType.name,
       onChanged: (value) {
-        if (value.isNotEmpty && errors.contains(kFirstNameNullError)) {
+        if (value.isNotEmpty && errors.contains(kNameNullError)) {
           setState(() {
-            errors.remove(kFirstNameNullError);
+            errors.remove(kNameNullError);
           });
         }
       },
       onSaved: (newValue) => firstName = newValue,
       validator: (value) {
-        if (value!.isEmpty && !errors.contains(kFirstNameNullError)) {
+        if (value!.isEmpty && !errors.contains(kNameNullError)) {
           setState(() {
-            errors.add(kFirstNameNullError);
+            errors.add(kNameNullError);
           });
         }
         return '';

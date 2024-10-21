@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:e_commerce/constant.dart';
 import 'package:e_commerce/size_config.dart';
 
+
 class SplashContent extends StatelessWidget {
   const SplashContent({
     super.key,

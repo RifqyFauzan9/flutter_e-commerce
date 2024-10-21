@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:e_commerce/components/my_default_button.dart';
 import 'package:e_commerce/constant.dart';
 import 'package:e_commerce/model/splash_data.dart';
-import 'package:e_commerce/screens/splash/splash_content.dart';
+import 'package:e_commerce/screens/sign_in/sign_in_screen.dart';
+import 'package:e_commerce/screens/splash/components/splash_content.dart';
 import 'package:e_commerce/size_config.dart';
 
 class Body extends StatefulWidget {
@@ -25,16 +26,13 @@ class _BodyState extends State<Body> {
             Expanded(
               flex: 3,
               child: PageView.builder(
-                  onPageChanged: (value) {
-                    setState(() {
-                      currentPage = value;
-                    });
-                    // print(currentPage);
-                  },
-                  itemCount: splashData.length,
-                  itemBuilder: (context, index) => SplashContent(
-                      text: splashData[index]["text"]!, //string nullable
-                      image: splashData[index]["image"]!)),
+                onPageChanged: (value) => setState(() => currentPage = value),
+                itemCount: splashData.length,
+                itemBuilder: (context, index) => SplashContent(
+                  text: splashData[index]['text']!,
+                  image: splashData[index]['image']!,
+                ),
+              ),
             ),
             Expanded(
               flex: 2,
@@ -45,22 +43,26 @@ class _BodyState extends State<Body> {
                   children: [
                     const Spacer(),
                     Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: List.generate(splashData.length,
-                            (index) => dotBuilder(index: index))),
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        splashData.length,
+                        (index) => dotBuilder(index: index),
+                      ),
+                    ),
                     const Spacer(
                       flex: 1,
                     ),
                     MyDefaultButton(
-                      text: 'Next',
-                      onPressed: () =>
-                          Navigator.pushReplacementNamed(context, '/sign_in'),
+                      text: 'Continue',
+                      press: () {
+                        Navigator.pushNamed(context, SignInScreen.routeName);
+                      },
                     ),
                     const Spacer(),
                   ],
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),
@@ -70,11 +72,11 @@ class _BodyState extends State<Body> {
   AnimatedContainer dotBuilder({required int index}) {
     return AnimatedContainer(
       duration: kAnimationDuration,
-      margin: const EdgeInsets.only(right: 5),
+      margin: const EdgeInsets.only(right: 2.5, left: 2.5),
       height: 6,
       width: currentPage == index ? 20 : 6,
       decoration: BoxDecoration(
-          color: currentPage == index ? kPrimaryColor : const Color(0xffd8d8d8),
+          color: currentPage == index ? kPrimaryColor : const Color(0xFFD8D8D8),
           borderRadius: BorderRadius.circular(3)),
     );
   }

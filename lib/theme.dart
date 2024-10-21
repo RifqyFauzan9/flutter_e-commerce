@@ -1,22 +1,23 @@
-import 'package:e_commerce/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:e_commerce/constant.dart';
 
 ThemeData themeData() {
   return ThemeData(
-    appBarTheme: const AppBarTheme(
-      color: Colors.white,
-      elevation: 0,
-      iconTheme: IconThemeData(
-        color: Colors.black,
-      ),
-      titleTextStyle: TextStyle(color: kTextColor, fontSize: 18),
-    ),
-    fontFamily: 'Muli',
-    scaffoldBackgroundColor: Colors.white,
-    textTheme: textTheme(),
-    visualDensity: VisualDensity.adaptivePlatformDensity,
-    inputDecorationTheme: inputDecorationTheme(),
-  );
+      fontFamily: "Muli",
+      appBarTheme: const AppBarTheme(
+          color: Colors.white,
+          elevation: 0,
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
+          titleTextStyle: TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+          )),
+      scaffoldBackgroundColor: const Color(0xFFF6F6F6),
+      textTheme: textTheme(),
+      visualDensity: VisualDensity.adaptivePlatformDensity,
+      inputDecorationTheme: inputDecorationTheme());
 }
 
 TextTheme textTheme() {
@@ -27,16 +28,19 @@ TextTheme textTheme() {
 }
 
 InputDecorationTheme inputDecorationTheme() {
-  var outlineInputBorder = const OutlineInputBorder(
-    borderRadius: BorderRadius.all(Radius.circular(50)),
+  const outlineInputBorder = OutlineInputBorder(
     borderSide: BorderSide(color: kPrimaryColor),
+    gapPadding: 10,
   );
-  return InputDecorationTheme(
-    contentPadding: const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
-    enabledBorder: outlineInputBorder,
-    labelStyle: const TextStyle(
+  return const InputDecorationTheme(
+    contentPadding: EdgeInsets.symmetric(
+      horizontal: 42,
+      vertical: 20,
+    ),
+    labelStyle: TextStyle(
       color: kPrimaryColor,
     ),
+    enabledBorder: outlineInputBorder,
     focusedBorder: outlineInputBorder,
     border: outlineInputBorder,
   );

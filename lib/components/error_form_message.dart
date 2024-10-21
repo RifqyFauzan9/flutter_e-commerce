@@ -1,6 +1,6 @@
-import 'package:e_commerce/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:e_commerce/size_config.dart';
 
 class ErorrFormMessage extends StatelessWidget {
   final List<String> errors;

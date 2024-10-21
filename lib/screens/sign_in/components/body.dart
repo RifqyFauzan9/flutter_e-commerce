@@ -1,9 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:e_commerce/components/social_media_icon.dart';
 import 'package:e_commerce/constant.dart';
-import 'package:e_commerce/screens/sign_in/sign_in_form.dart';
+import 'package:e_commerce/screens/sign_in/components/sign_in_form.dart';
 import 'package:e_commerce/screens/sign_up/sign_up_screen.dart';
 import 'package:e_commerce/size_config.dart';
-import 'package:flutter/material.dart';
+
+// Body Sign IN
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -13,81 +15,75 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  bool checkValue = false;
+  bool remember = false;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return SafeArea(
+        child: SizedBox(
       width: double.infinity,
       child: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: getProportionateScreenHeight(20),
-        ),
+        padding:
+            EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
         child: Center(
           child: SingleChildScrollView(
             child: Column(
               children: [
                 Text(
-                  'Sign In',
+                  'Welcome Back',
                   style: TextStyle(
-                    color: Colors.black,
-                    fontSize: getProportionateScreenWidth(28),
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontSize: getProportionateScreenWidth(28),
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
                 ),
                 const Text(
-                  'Sign in with your email and password \nor continue with social media',
+                  'Sign in with you Email and Password \nor continue with social media',
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: SizeConfig.screenHeight * 0.03),
+                SizedBox(
+                  height: SizeConfig.screenHeight * 0.03,
+                ),
                 const SignInForm(),
-                SizedBox(height: SizeConfig.screenHeight * 0.03),
+                SizedBox(
+                  height: SizeConfig.screenHeight * 0.03,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SocialMediaIcon(
                       icon: 'assets/icons/google-icon.svg',
-                      onPressed: () {},
+                      press: () {},
                     ),
                     SocialMediaIcon(
                       icon: 'assets/icons/facebook-2.svg',
-                      onPressed: () {},
+                      press: () {},
                     ),
                     SocialMediaIcon(
                       icon: 'assets/icons/twitter.svg',
-                      onPressed: () {},
+                      press: () {},
                     ),
                   ],
                 ),
-                SizedBox(height: getProportionateScreenHeight(20)),
+                SizedBox(
+                  height: getProportionateScreenHeight(20),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      'Don\'t have an account?',
-                    ),
-                    SizedBox(
-                      width: getProportionateScreenWidth(5),
-                    ),
+                    const Text("Dont have an account? "),
                     GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, SignUpScreen.routeName);
-                      },
-                      child: const Text(
-                        'Sign Up',
-                        style: TextStyle(
-                          color: kPrimaryColor,
-                        ),
-                      ),
-                    ),
+                        onTap: () {
+                          Navigator.pushNamed(context, SignUpScreen.routeName);
+                        },
+                        child: const Text("Sign Up",
+                            style: TextStyle(color: kPrimaryColor)))
                   ],
-                ),
-                SizedBox(height: getProportionateScreenHeight(20)),
+                )
               ],
             ),
           ),
         ),
       ),
-    );
+    ));
   }
 }

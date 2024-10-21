@@ -1,9 +1,8 @@
-import 'package:e_commerce/screens/complete_profile/components/body.dart';
 import 'package:flutter/material.dart';
+import 'package:e_commerce/screens/complete_profile/components/body.dart';
 
 class CompleteProfileScreen extends StatelessWidget {
-  static const routeName = '/complete_profile';
-
+  static String routeName = "/complete_profile";
   const CompleteProfileScreen({super.key});
 
   @override
